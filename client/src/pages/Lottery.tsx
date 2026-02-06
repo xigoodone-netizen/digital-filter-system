@@ -31,8 +31,9 @@ export default function Lottery() {
   const [activeLayer, setActiveLayer] = useState<string>("L6");
   const [stats, setStats] = useState({ total: 0, hits: 0, rate: 0 });
 
-  // 1. Initial Load from LocalStorage
+  // 1. Initial Load & Auto-Sync Timer
   useEffect(() => {
+    // Initial load from localStorage
     const savedDraws = localStorage.getItem(STORAGE_KEYS.DRAWS);
     const savedStats = localStorage.getItem(STORAGE_KEYS.STATS);
     
@@ -40,13 +41,22 @@ export default function Lottery() {
       const parsedDraws = JSON.parse(savedDraws);
       setDraws(parsedDraws);
       runAnalysis(parsedDraws);
-    } else {
-      fetchData(); // Initial fetch if empty
     }
+    
+    // Always fetch latest on load
+    fetchData();
 
     if (savedStats) {
       setStats(JSON.parse(savedStats));
     }
+
+    // Set up auto-sync timer (every 60 seconds)
+    const timer = setInterval(() => {
+      console.log("Auto-syncing lottery data...");
+      fetchData();
+    }, 60000);
+
+    return () => clearInterval(timer);
   }, []);
 
   // 2. Fetch Data from API
