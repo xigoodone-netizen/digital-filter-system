@@ -10,6 +10,7 @@ import {
   calculateScores, 
   performNineLayerFiltering, 
   testL6Hit, 
+  extractLastThreeDigits,
   LAYERS,
   Draw,
   AnalysisResult,
