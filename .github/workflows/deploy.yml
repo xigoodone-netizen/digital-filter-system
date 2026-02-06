@@ -18,17 +18,16 @@ jobs:
 
       - name: Install pnpm
         uses: pnpm/action-setup@v4
-        with:
-          version: 10
+        # 删除了冲突的 version 字段，自动读取 package.json 中的版本
 
       - name: Set up Node
-        uses: actions/setup-node@v4  # 这里已修正：setup-node
+        uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: 'pnpm'
 
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install --no-frozen-lockfile
 
       - name: Build
         run: pnpm vite build --base=/digital-filter-system/
