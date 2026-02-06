@@ -1,70 +1,45 @@
-# Digital Filter System (彩票开奖数据分析和预测系统)
+# Digital Filter System (彩票九层精筛系统 - 纯前端版)
 
-A real-time lottery data analysis and prediction platform built with a modern tech stack.
+这是一个重构后的纯前端彩票开奖数据分析和预测平台，无需后端服务器或数据库即可直接运行。
 
-## 🌟 Features
+## 🌟 核心功能
 
-- **Real-time Data Sync**: Automatically syncs the latest lottery draw data every minute.
-- **Nine-Layer Filtering Algorithm**: Advanced filtering logic (L9 to L1) for data analysis.
-- **AI Four-Dimensional Scoring**: Evaluates combinations based on Sum, Span, Hot/Cold numbers, and Theoretical hit rate.
-- **L6 Hit Rate Statistics**: Tracks and displays historical performance and hit rates.
-- **Cyberpunk UI**: Modern, glassmorphism-style dashboard with dark mode support.
-- **GitHub Integration**: Capable of pushing results directly to GitHub.
+- **纯前端运行**: 所有的筛选算法和逻辑均在浏览器中执行。
+- **九层精筛算法**: 包含从 L9 到 L1 的完整筛选逻辑。
+- **AI 四维评分**: 结合和值、跨度、冷热码等维度的综合评估。
+- **数据本地化**: 使用 `localStorage` 保存您的筛选历史和 L6 命中统计。
+- **赛博朋克 UI**: 现代化的玻璃拟态风格仪表盘。
 
-## 🛠 Tech Stack
+## 🛠 技术栈
 
-- **Frontend**: React, TypeScript, Vite, TailwindCSS, Radix UI, Lucide Icons.
-- **Backend**: Node.js, Express, tRPC.
-- **Database**: MySQL with Drizzle ORM.
-- **Development**: PNPM, TypeScript, Vitest.
+- **框架**: React, TypeScript, Vite
+- **样式**: TailwindCSS, Radix UI, Lucide Icons
+- **算法**: 自研九层筛选与四维评分逻辑
+- **部署**: GitHub Pages (静态托管)
 
-## 🚀 Quick Start
+## 🚀 快速开始
 
-### Prerequisites
+### 安装
 
-- Node.js (v18 or higher)
-- PNPM
-- MySQL Database
-
-### Installation
-
-1. Clone the repository:
+1. 克隆仓库：
    ```bash
    git clone https://github.com/xigoodone-netizen/digital-filter-system.git
    cd digital-filter-system
    ```
 
-2. Install dependencies:
+2. 安装依赖：
    ```bash
    pnpm install
    ```
 
-3. Set up your environment variables:
-   Create a `.env` file in the root directory and add your database URL:
-   ```env
-   DATABASE_URL=mysql://user:password@localhost:3306/db_name
-   ```
-
-4. Push database schema:
-   ```bash
-   pnpm db:push
-   ```
-
-5. Start the development server:
+3. 启动开发服务器：
    ```bash
    pnpm dev
    ```
 
-## 📂 Project Structure
+## 📂 部署到 GitHub Pages
 
-- `client/`: Frontend React application.
-- `server/`: Backend Express server and tRPC routers.
-- `shared/`: Shared types and constants between client and server.
-- `drizzle/`: Database migrations and schema definitions.
-
-## 📄 Documentation
-
-For detailed implementation details, please refer to the [IMPLEMENTATION_GUIDE.md](./IMPLEMENTATION_GUIDE.md).
+项目已配置 GitHub Actions 自动部署。每次推送到 `main` 分支时，都会自动构建并发布。
 
 ## ⚖️ License
 
