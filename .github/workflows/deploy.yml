@@ -22,7 +22,7 @@ jobs:
           version: 10
 
       - name: Set up Node
-        uses: actions/node-setup@v4
+        uses: actions/setup-node@v4  # 这里已修正：setup-node
         with:
           node-version: 20
           cache: 'pnpm'
